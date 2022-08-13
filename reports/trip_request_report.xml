@@ -1,0 +1,11 @@
+<odoo>
+    <data>
+        <report
+            id="trip_report"
+            string="Trip Request Report"
+            name="trip_request.trip_template"
+            model="trip.request"
+            report_type="qweb-pdf"
+        />
+    </data>
+</odoo>

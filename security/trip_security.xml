@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record model="ir.module.category" id="trip_category">
+            <field name="name">Trip Request</field>
+            <field name="sequence">1</field>
+        </record>
+
+        <record id="manager_trip" model="res.groups">
+            <field name="name">Manager Trip</field>
+            <field name="category_id" ref="trip_request.trip_category"></field>
+        </record>
+
+        <record id="user_trip" model="res.groups">
+            <field name="name">User Trip</field>
+            <field name="category_id" ref="trip_request.trip_category"></field>
+        </record>
+        <record id="see_own_record" model="ir.rule">
+            <field name="name">See Own Record</field>
+            <field name="model_id" ref="model_trip_request"/>
+            <field name="domain_force">[('create_uid','=', user.id)]</field>
+            <field name="groups" eval="[(4,ref('trip_request.user_trip'))]"/>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,39 @@
+
+<odoo>
+    <data>
+        <template id="trip_template">
+            <t t-call="web.html_container"/>
+                            <t t-call="web.external_layout">
+                                <div class="page">
+                                            <div class="container my-3">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <h1 style="color:blue;">Trip Reqeust</h1>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 <t t-foreach="docs" t-as="trip">
+                                            <div class="container my-3">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <div class="card" style="width: 18rem;">
+                                                                <div class="card-body">
+                                                                  <h5 class="card-title">Name:<span t-if="trip.emp_id.name" t-field="trip.emp_id.name"/></h5>
+                                                                  <h5 class="card-title">Start Date:<span t-if="trip.start_date"  t-field="trip.start_date"/></h5>
+                                                                  <h5 class="card-title">End Date:<span t-if="trip.end_date"   t-field="trip.end_date"/></h5>
+                                                                  <h5 class="card-title">Rest Days:<span t-if="trip.rest_days" t-field="trip.rest_days"/></h5>
+                                                                  <h5 class="card-title">Destination:<span t-if="trip.destination" t-field="trip.destination"/></h5>
+                                                                  <p class="card-text"> State:<span t-if="trip.state" t-field="trip.state"/></p>
+                                                                </div>
+                                                        <div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           </div>
+                                          </div>
+                                    </t>
+                                        </div>
+                            </t>
+        </template>
+    </data>
+</odoo>

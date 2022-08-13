@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+
+        <record id="trip_request_tree_view" model="ir.ui.view">
+            <field name="name">trip.request.tree.view</field>
+            <field name="model">trip.request</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="rest_days"/>
+                    <field name="trip_days"/>
+                    <field name="state"/>
+                    <field name="emp_id" string="Employee Name"/>
+                    <field name="destination" string="Destination" />
+                     <field name="update_status_employee" string="Last Emp Update Status" readonly="1" />
+                </tree>
+            </field>
+        </record>
+        <record id="trip_request_form_view" model="ir.ui.view">
+            <field name="name">trip.request.tree.view</field>
+            <field name="model">trip.request</field>
+            <field name="arch" type="xml">
+                <form>
+                     <header class="d-flex justify-content-center">
+                        <button name="draft" type="object" string="draft"
+                                class="btn btn-info" />
+                         <button name="confirmed" type="object" string="confirmed"
+                                class="btn btn-info" />
+                         <button name="cancelled" type="object" string="cancelled"
+                                class="btn btn-info" />
+                         <button name="ended" type="object" string="ended"
+                                class="btn btn-info" />
+                    </header>
+                 <sheet>
+                    <group>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="rest_days"/>
+                    <field name="trip_days"/>
+                    <field name="state"/>
+                    <field name="emp_id" />
+                    <field name="destination"/>
+                    </group>
+                 </sheet>
+                 </form>
+            </field>
+        </record>
+
+        <record id="trip_request_action" model="ir.actions.act_window" >
+            <field name="name">TRIP</field>
+            <field name="res_model">trip.request</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id= "trip_root_menu" name="TRIP"/>
+        <menuitem id= "trip_request_menu" name="Trip" parent="trip_root_menu" action="trip_request_action"/>
+
+    </data>
+</odoo>
